@@ -40,4 +40,4 @@ for(;;)
 
 writedb(dbase);
 
-// more, pls goto example.c
+// more, pls goto example.cpp
