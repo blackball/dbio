@@ -1,0 +1,43 @@
+A Simple Binary IO
+==================
+
+Discription
+------
+A simple raw memory data IO solution
+for temporary use.
+
+Usgae
+------
+If you have your own types to streaming,
+write your own pack/unpack method.
+
+int pack_utype(struct db* dbase, int sz, utype *t)
+{
+   int ecode = 0;
+   // @todo check dbase != NULL
+
+   struct db_ndoe *node = new_node(sz);
+   
+   // memcpy your data into node->data
+
+   // insert node into dbase
+   ecode = dump(dbase, node);
+
+   return ecode;
+}
+
+int unpack_utype(...); // pls check example in example.c
+
+// first 
+struct db *dbase = createdb(123, "name.db", sz_of_node);
+
+for(;;)
+{
+  ...;
+  pack_utype(...);
+  ...;
+}
+
+writedb(dbase);
+
+// more, pls goto example.c
